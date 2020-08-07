@@ -1,0 +1,163 @@
+/****** Object:  Table [db_owner].[Attendeess]    Script Date: 03/08/2020 09:44:48 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [db_owner].[Attendeess](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[MemberAzureId] [nvarchar](450) NOT NULL,
+	[Status] [int] NOT NULL,
+ CONSTRAINT [PK_Attendeess] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [db_owner].[Attendeess]  WITH CHECK ADD  CONSTRAINT [FK_Attendeess_Members_MemberAzureId] FOREIGN KEY([MemberAzureId])
+REFERENCES [db_owner].[Members] ([AzureId])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [db_owner].[Attendeess] CHECK CONSTRAINT [FK_Attendeess_Members_MemberAzureId]
+GO
+
+/****** Object:  Table [db_owner].[Ballots]    Script Date: 03/08/2020 09:45:27 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [db_owner].[Ballots](
+	[BallotId] [int] IDENTITY(1,1) NOT NULL,
+	[SessionCurrentSessionID] [int] NOT NULL,
+	[IsActiveBallot] [bit] NOT NULL,
+	[BallotStartTime] [datetime2](7) NOT NULL,
+	[BallotEndTime] [datetime2](7) NULL,
+	[BallotName] [int] NOT NULL,
+ CONSTRAINT [PK_Ballots] PRIMARY KEY CLUSTERED 
+(
+	[BallotId] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [db_owner].[Ballots]  WITH CHECK ADD  CONSTRAINT [FK_Ballots_Sessions_SessionCurrentSessionID] FOREIGN KEY([SessionCurrentSessionID])
+REFERENCES [db_owner].[Sessions] ([CurrentSessionID])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [db_owner].[Ballots] CHECK CONSTRAINT [FK_Ballots_Sessions_SessionCurrentSessionID]
+GO
+
+/****** Object:  Table [db_owner].[Members]    Script Date: 03/08/2020 09:45:55 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [db_owner].[Members](
+	[AzureId] [nvarchar](450) NOT NULL,
+	[DisplayName] [nvarchar](max) NOT NULL,
+	[FirstName] [nvarchar](max) NULL,
+	[LastName] [nvarchar](max) NULL,
+	[SeatNumber] [int] NOT NULL,
+	[IsActiveMember] [bit] NOT NULL,
+ CONSTRAINT [PK_Members] PRIMARY KEY CLUSTERED 
+(
+	[AzureId] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE [db_owner].[Members] ADD  DEFAULT ((0)) FOR [IsActiveMember]
+GO
+
+/****** Object:  Table [db_owner].[MembersSeats]    Script Date: 03/08/2020 09:46:17 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [db_owner].[MembersSeats](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[MemberAzureId] [nvarchar](450) NOT NULL,
+	[Seat] [int] NOT NULL,
+ CONSTRAINT [PK_MembersSeats] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [db_owner].[MembersSeats]  WITH CHECK ADD  CONSTRAINT [FK_MembersSeats_Members_MemberAzureId] FOREIGN KEY([MemberAzureId])
+REFERENCES [db_owner].[Members] ([AzureId])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [db_owner].[MembersSeats] CHECK CONSTRAINT [FK_MembersSeats_Members_MemberAzureId]
+GO
+
+/****** Object:  Table [db_owner].[Sessions]    Script Date: 03/08/2020 09:46:57 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [db_owner].[Sessions](
+	[CurrentSessionID] [int] IDENTITY(1,1) NOT NULL,
+	[IsActiveSession] [bit] NOT NULL,
+	[StartTime] [datetime2](7) NOT NULL,
+	[EndTime] [datetime2](7) NULL,
+ CONSTRAINT [PK_Sessions] PRIMARY KEY CLUSTERED 
+(
+	[CurrentSessionID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+/****** Object:  Table [db_owner].[Votes]    Script Date: 03/08/2020 09:47:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [db_owner].[Votes](
+	[VoteId] [int] IDENTITY(1,1) NOT NULL,
+	[BallotId] [int] NOT NULL,
+	[MemberAzureId] [nvarchar](450) NOT NULL,
+	[CastVote] [int] NOT NULL,
+	[Seat] [int] NOT NULL,
+ CONSTRAINT [PK_Votes] PRIMARY KEY CLUSTERED 
+(
+	[VoteId] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [db_owner].[Votes] ADD  DEFAULT ((0)) FOR [Seat]
+GO
+
+ALTER TABLE [db_owner].[Votes]  WITH CHECK ADD  CONSTRAINT [FK_Votes_Ballots_BallotId] FOREIGN KEY([BallotId])
+REFERENCES [db_owner].[Ballots] ([BallotId])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [db_owner].[Votes] CHECK CONSTRAINT [FK_Votes_Ballots_BallotId]
+GO
+
+ALTER TABLE [db_owner].[Votes]  WITH CHECK ADD  CONSTRAINT [FK_Votes_Members_MemberAzureId] FOREIGN KEY([MemberAzureId])
+REFERENCES [db_owner].[Members] ([AzureId])
+ON DELETE CASCADE
+GO
+
+ALTER TABLE [db_owner].[Votes] CHECK CONSTRAINT [FK_Votes_Members_MemberAzureId]
+GO
