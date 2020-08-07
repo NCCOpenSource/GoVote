@@ -73,14 +73,14 @@ As a rule of thumb, changes are obvious fixes if they do not introduce any new f
 - 	Moving source files from one directory or package to another
 
 ## How to report a bug
-If you find a security vulnerability, do NOT open an issue. Please email <ToBeConfirmed@newcastle.gov.uk> instead.
+If you find a security vulnerability, do NOT open an issue. Please email <Opensourceprojects@newcastle.gov.uk> instead.
 
  In order to determine whether you are dealing with a security issue, ask yourself these two questions:
 
 - 	Can I access something that's not mine, or something I shouldn't have access to?
 - 	Can I disable something for other people?
 
-If the answer to either of those two questions are "yes", then you're probably dealing with a security issue. Note that even if you answer "no" to both questions, you may still be dealing with a security issue, so if you're unsure, just email us at <ToBeConfirmed@newcastle.gov.uk>
+If the answer to either of those two questions are "yes", then you're probably dealing with a security issue. Note that even if you answer "no" to both questions, you may still be dealing with a security issue, so if you're unsure, just email us at <Opensourceprojects@newcastle.gov.uk>
 
 **Bug report.**
 
