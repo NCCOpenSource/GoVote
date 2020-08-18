@@ -1,0 +1,98 @@
+﻿@model VotingApp.ViewModels.HomeIndexViewModel;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form>
+    <div class="col-4">
+        <button asp-action="Index" asp-controller="Home" class="votebutton refresh">Refresh</button><br />
+    </div>
+</form>
+
+@if (Model.Registered == 1)
+{
+    <div class="container">
+        <div class="row"><h4>You have signed-in successfully.  Leave this window open and when a vote is launched it will appear below.</h4></div>
+        <div class="row">
+            <div class="row">
+                <div class="col-6">
+                    <ul id="messagesList"></ul>
+                </div>
+            </div>
+            <div class="col-12">
+                <label>Seat Number:&nbsp;</label><label id="seatNo">@Model.Seat</label>
+                @if (Model.Ballot.IsActiveBallot == true)
+                {
+                    <div id="voteButtons">
+                        <h3>Vote number: <span id="voteNumber">@Model.Ballot.BallotName</span></h3>
+                        <form>
+                            <div class="col-12">
+                                @if (Model.CurrentVote != null)
+                                {
+                                    <div id="currentVote">
+                                        <h2>Your current vote is: @Model.CurrentVote.CastVote</h2>
+                                        <h4>You can amend this until the vote is closed.</h4>
+                                    </div>
+                                }
+                                <div class="col-4">
+                                    <button asp-action="Vote" asp-controller="Home" asp-route-id="Yes" id="sendYes" value="Yes" class="votebutton yes" onclick="hideButtons()">Yes</button><br />
+                                </div>
+                                <div class="col-4">
+                                    <button asp-action="Vote" asp-controller="Home" asp-route-id="No" id="sendNo" value="Yes" class="votebutton no"  onclick="hideButtons()">No</button><br />
+                                </div>
+                                <div class="col-4">
+                                    <button asp-action="Vote" asp-controller="Home" asp-route-id="Abstain" id="sendAbstain" value="Abstain" class="votebutton abstain" onclick="hideButtons()">Abstain</button><br />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                }
+                else
+                {
+                    <div id="voteButtons" style="display:none;">
+                        <h3>Vote number: <span id="voteNumber"></span></h3>
+                        <form>
+                            <div class="col-12">
+                                @if (Model.CurrentVote != null)
+                                {
+                                    <div id="currentVote">
+                                        <h2>Your current vote is: @Model.CurrentVote.CastVote</h2>
+                                        <h4>You can amend this until the vote is closed.</h4>
+                                    </div>
+                                }
+                                <div class="col-4">
+                                    <button asp-action="Vote" asp-controller="Home" asp-route-id="Yes" id="sendYes" value="Yes" class="votebutton yes">Yes</button><br />
+                                </div>
+                                <div class="col-4">
+                                    <button asp-action="Vote" asp-controller="Home" asp-route-id="No" id="sendNo" value="Yes" class="votebutton no">No</button><br />
+                                </div>
+                                <div class="col-4">
+                                    <button asp-action="Vote" asp-controller="Home" asp-route-id="Abstain" id="sendAbstain" value="Abstain" class="votebutton abstain">Abstain</button><br />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/signalr/dist/browser/signalr.js"></script>
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="~/js/vote.js?v=7"></script>
+
+}
+else if (Model.Registered == 0)
+{
+    <div>
+        <h1>You have not registered your attendance in order to vote in this session</h1>
+        <h4>Return to the entrance and sign-in using one of the devices provided</h4>
+    </div>
+}
+else if (Model.Registered == 2)
+{
+    <div>
+        <h1>There are no current active sessions</h1>
+        <h4>Return here when the session has begun.</h4>
+    </div>
+}

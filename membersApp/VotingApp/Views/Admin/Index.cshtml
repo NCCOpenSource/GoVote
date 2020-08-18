@@ -1,0 +1,143 @@
+﻿@model VotingApp.ViewModels.AdminIndexViewModel;
+@{
+    ViewData["Title"] = "Admin Page";
+}
+<h1>Admin Console</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="col-md-12">
+                <h2>Current App State</h2>
+                <h5>Session Active: @Model.CouncilSession.IsActiveSession</h5>
+                <h5>Current/Previous Session ID: @Model.CouncilSession.CurrentSessionID</h5>
+                <h5>Vote Active: @Model.ActiveOrLastBallot.IsActiveBallot</h5>
+                @if (@Model.BallotsThisSession == 0)
+                {
+                <h5 id="pollID">Current/Previous Ballot: 0</h5>
+                }
+                else
+                {
+                <h5 id="pollID">Current/Previous Ballot: @Model.ActiveOrLastBallot.BallotName</h5>
+                }
+                <h5>Current/Previous Ballot ID: @Model.ActiveOrLastBallot.BallotId</h5>
+            </div>
+
+            <form>
+                @if (!@Model.CouncilSession.IsActiveSession)
+                {
+                    <div class="col-md-12">
+                        <button asp-action="StartSession" asp-controller="Admin" class="start">Start Session</button> <br /><br />
+                    </div>
+                }
+                else
+                {
+                    <div class="col-md-12">
+                        <button asp-action="CloseSession" asp-controller="Admin" class="end" onclick="return confirm('Are you sure?  Ending the session early will require all members to re-register before votes can occur.');">Close Session</button><br /> <br />
+                    </div>
+
+                    @if (!@Model.ActiveOrLastBallot.IsActiveBallot)
+                    {
+                        <div class="col-md-12">
+                            <button asp-action="StartBallot" asp-controller="Admin" id="StartPoll" value="StartPoll" onclick="beginPoll()" class="start">Start vote</button><br /> <br />
+                        </div>
+
+                        <div class="col-md-12">
+                            <button id="BlankDisplay" class="end" value="ClearDisplay" onclick="blankDisplay()">Blank Display</button><br /><br />
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-md-12">
+                            <button asp-action="CloseBallot" asp-controller="Admin" id="ClosePoll" class="end" onclick="endPoll()" value="ClosePoll">Close vote</button><br /> <br />
+                        </div>
+                    }
+
+                    <div class="col-md-12">
+                        <button id="ClearDisplay" class="end" value="ClearDisplay" onclick="clearDisplay()">Clear Display</button><br /><br />
+                    </div>
+                }
+
+                @if (!@Model.CouncilSession.IsActiveSession)
+                {
+                    <div class="col-md-12">
+                        <button asp-action="UploadMemberSeatingPlan" asp-controller="Admin" class="end" value="UploadMemberSeatingPlan">Upload seating plan</button><br /> <br />
+                    </div>
+                }
+                
+            </form>
+
+            <script>
+
+                function clearDisplay() {
+                    connection.invoke("ClearDisplay").catch(function (err) {
+                        return console.error(err.toString());
+                    });
+                }
+
+                function blankDisplay() {
+                    connection.invoke("BlankDisplay").catch(function (err) {
+                        return console.error(err.toString());
+                    });
+                }
+                function beginPoll() {
+                    var pollID = @Model.BallotsThisSession +1;
+                    connection.invoke("OpenPoll", pollID).catch(function (err) {
+                        return console.error(err.toString());
+                    });
+                    connection.invoke("ClearDisplay").catch(function (err) {
+                        return console.error(err.toString());
+                    });
+
+                }
+
+                function endPoll() {
+                    var pollID = @Model.ActiveOrLastBallot.BallotName; 
+                    $("#messagesList").html("");
+                    connection.invoke("ClosePoll", pollID).catch(function (err) {
+                        return console.error(err.toString());
+                    });
+                }
+
+
+            </script>
+
+        </div>
+        
+        <div class="col-md-8">
+            <h2>Member Register</h2>
+            <form>
+                @if (@Model.CouncilSession.IsActiveSession)
+                {
+                    <div class="col-md-12">
+                        <button asp-action="Index" asp-controller="Admin" class="end" value="">Refresh</button><br /> <br />
+                    </div>
+                }
+
+                @foreach (var member in Model.Register)
+                {
+                    <div class="col-md-3">
+                        @if (member.Value == 0)
+                        {
+                            <button asp-action="attend" asp-route-id="@member.Key.AzureId" asp-controller="Admin" value="@member.Key.AzureId" class="adminregisterbutton">@member.Key.LastName, @member.Key.FirstName</button>
+                        }
+                        else
+                        {
+                            <button asp-action="signout" asp-route-id="@member.Key.AzureId" asp-controller="Admin" value="@member.Key.AzureId" class="adminunregisterbutton">@member.Key.LastName, @member.Key.FirstName</button>
+                        }
+
+
+                    </div>
+                }
+            </form>
+        </div>
+    </div>
+   
+    <div class="row">
+        <div class="col-8">
+            <ul id="messagesList"></ul>
+        </div>
+    </div>
+</div>
+<script src="~/lib/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/admin.js"></script>

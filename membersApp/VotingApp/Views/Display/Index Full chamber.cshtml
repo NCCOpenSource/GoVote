@@ -1,0 +1,203 @@
+﻿@using System;
+@model VotingApp.ViewModels.DisplayIndexViewModel;
+@{
+    ViewData["Title"] = "Display Page";
+}
+
+<div class="container">
+    <div class="row">
+        <svg id="chamber" height="400" width="1250">
+            <!--Back left -->
+            <rect id="seat117" x="50" y="39" width="30" height="30" class="vacant" />
+            <rect id="seat116" x="100" y="36" width="30" height="30" class="vacant" />
+            <rect id="seat115" x="150" y="33" width="30" height="30" class="vacant" />
+            <rect id="seat114" x="200" y="30" width="30" height="30" class="vacant" />
+            <rect id="seat113" x="250" y="27" width="30" height="30" class="vacant" />
+            <rect id="seat112" x="300" y="24" width="30" height="30" class="vacant" />
+            <rect id="seat111" x="350" y="21" width="30" height="30" class="vacant" />
+            <rect id="seat110" x="400" y="18" width="30" height="30" class="vacant" />
+            <rect id="seat109" x="450" y="15" width="30" height="30" class="vacant" />
+            <!--Back right -->
+            <rect id="seat100" x="950" y="39" width="30" height="30" class="vacant" />
+            <rect id="seat101" x="900" y="36" width="30" height="30" class="vacant" />
+            <rect id="seat102" x="850" y="33" width="30" height="30" class="vacant" />
+            <rect id="seat103" x="800" y="30" width="30" height="30" class="vacant" />
+            <rect id="seat104" x="750" y="27" width="30" height="30" class="vacant" />
+            <rect id="seat105" x="700" y="24" width="30" height="30" class="vacant" />
+            <rect id="seat106" x="650" y="21" width="30" height="30" class="vacant" />
+            <rect id="seat107" x="600" y="18" width="30" height="30" class="vacant" />
+            <rect id="seat108" x="550" y="15" width="30" height="30" class="vacant" />
+            <!--second back left -->
+            <rect id="seat99" x="50" y="89" width="30" height="30" class="vacant" />
+            <rect id="seat98" x="100" y="86" width="30" height="30" class="vacant" />
+            <rect id="seat97" x="150" y="83" width="30" height="30" class="vacant" />
+            <rect id="seat96" x="200" y="80" width="30" height="30" class="vacant" />
+            <rect id="seat95" x="250" y="77" width="30" height="30" class="vacant" />
+            <rect id="seat94" x="300" y="74" width="30" height="30" class="vacant" />
+            <rect id="seat93" x="350" y="71" width="30" height="30" class="vacant" />
+            <rect id="seat92" x="400" y="68" width="30" height="30" class="vacant" />
+            <rect id="seat91" x="450" y="65" width="30" height="30" class="vacant" />
+            <!--second back right -->
+            <rect id="seat82" x="950" y="89" width="30" height="30" class="vacant" />
+            <rect id="seat83" x="900" y="86" width="30" height="30" class="vacant" />
+            <rect id="seat84" x="850" y="83" width="30" height="30" class="vacant" />
+            <rect id="seat85" x="800" y="80" width="30" height="30" class="vacant" />
+            <rect id="seat86" x="750" y="77" width="30" height="30" class="vacant" />
+            <rect id="seat87" x="700" y="74" width="30" height="30" class="vacant" />
+            <rect id="seat88" x="650" y="71" width="30" height="30" class="vacant" />
+            <rect id="seat89" x="600" y="68" width="30" height="30" class="vacant" />
+            <rect id="seat90" x="550" y="65" width="30" height="30" class="vacant" />
+            <!--third back left -->
+            <rect id="seat81" x="50" y="139" width="30" height="30" class="vacant" />
+            <rect id="seat80" x="100" y="136" width="30" height="30" class="vacant" />
+            <rect id="seat79" x="150" y="133" width="30" height="30" class="vacant" />
+            <rect id="seat78" x="200" y="130" width="30" height="30" class="vacant" />
+            <rect id="seat77" x="250" y="127" width="30" height="30" class="vacant" />
+            <rect id="seat76" x="300" y="124" width="30" height="30" class="vacant" />
+            <rect id="seat75" x="350" y="121" width="30" height="30" class="vacant" />
+            <rect id="seat74" x="400" y="118" width="30" height="30" class="vacant" />
+            <rect id="seat73" x="450" y="115" width="30" height="30" class="vacant" />
+            <!--third back right -->
+            <rect id="seat64" x="950" y="139" width="30" height="30" class="vacant" />
+            <rect id="seat65" x="900" y="136" width="30" height="30" class="vacant" />
+            <rect id="seat66" x="850" y="133" width="30" height="30" class="vacant" />
+            <rect id="seat67" x="800" y="130" width="30" height="30" class="vacant" />
+            <rect id="seat68" x="750" y="127" width="30" height="30" class="vacant" />
+            <rect id="seat69" x="700" y="124" width="30" height="30" class="vacant" />
+            <rect id="seat70" x="650" y="121" width="30" height="30" class="vacant" />
+            <rect id="seat71" x="600" y="118" width="30" height="30" class="vacant" />
+            <rect id="seat72" x="550" y="115" width="30" height="30" class="vacant" />
+            <!--middle left -->
+            <rect id="seat63" x="100" y="186" width="30" height="30" class="vacant" />
+            <rect id="seat62" x="150" y="183" width="30" height="30" class="vacant" />
+            <rect id="seat61" x="200" y="180" width="30" height="30" class="vacant" />
+            <rect id="seat60" x="250" y="177" width="30" height="30" class="vacant" />
+            <rect id="seat59" x="300" y="174" width="30" height="30" class="vacant" />
+            <rect id="seat58" x="350" y="171" width="30" height="30" class="vacant" />
+            <rect id="seat57" x="400" y="168" width="30" height="30" class="vacant" />
+            <rect id="seat56" x="450" y="165" width="30" height="30" class="vacant" />
+            <!--middle right -->
+            <rect id="seat48" x="900" y="186" width="30" height="30" class="vacant" />
+            <rect id="seat49" x="850" y="183" width="30" height="30" class="vacant" />
+            <rect id="seat50" x="800" y="180" width="30" height="30" class="vacant" />
+            <rect id="seat51" x="750" y="177" width="30" height="30" class="vacant" />
+            <rect id="seat52" x="700" y="174" width="30" height="30" class="vacant" />
+            <rect id="seat53" x="650" y="171" width="30" height="30" class="vacant" />
+            <rect id="seat54" x="600" y="168" width="30" height="30" class="vacant" />
+            <rect id="seat55" x="550" y="165" width="30" height="30" class="vacant" />
+            <!--third front left -->
+            <rect id="seat47" x="100" y="236" width="30" height="30" class="vacant" />
+            <rect id="seat46" x="150" y="233" width="30" height="30" class="vacant" />
+            <rect id="seat45" x="200" y="230" width="30" height="30" class="vacant" />
+            <rect id="seat44" x="250" y="227" width="30" height="30" class="vacant" />
+            <rect id="seat43" x="300" y="224" width="30" height="30" class="vacant" />
+            <rect id="seat42" x="350" y="221" width="30" height="30" class="vacant" />
+            <rect id="seat41" x="400" y="218" width="30" height="30" class="vacant" />
+            <rect id="seat40" x="450" y="215" width="30" height="30" class="vacant" />
+            <!--third front left -->
+            <rect id="seat32" x="900" y="236" width="30" height="30" class="vacant" />
+            <rect id="seat33" x="850" y="233" width="30" height="30" class="vacant" />
+            <rect id="seat34" x="800" y="230" width="30" height="30" class="vacant" />
+            <rect id="seat35" x="750" y="227" width="30" height="30" class="vacant" />
+            <rect id="seat36" x="700" y="224" width="30" height="30" class="vacant" />
+            <rect id="seat37" x="650" y="221" width="30" height="30" class="vacant" />
+            <rect id="seat38" x="600" y="218" width="30" height="30" class="vacant" />
+            <rect id="seat39" x="550" y="215" width="30" height="30" class="vacant" />
+            <!--second front left -->
+            <rect id="seat31" x="150" y="283" width="30" height="30" class="vacant" />
+            <rect id="seat30" x="200" y="280" width="30" height="30" class="vacant" />
+            <rect id="seat29" x="250" y="277" width="30" height="30" class="vacant" />
+            <rect id="seat28" x="300" y="274" width="30" height="30" class="vacant" />
+            <rect id="seat27" x="350" y="271" width="30" height="30" class="vacant" />
+            <rect id="seat26" x="400" y="268" width="30" height="30" class="vacant" />
+            <rect id="seat25" x="450" y="265" width="30" height="30" class="vacant" />
+            <!--second front right -->
+            <rect id="seat31" x="850" y="283" width="30" height="30" class="vacant" />
+            <rect id="seat30" x="800" y="280" width="30" height="30" class="vacant" />
+            <rect id="seat29" x="750" y="277" width="30" height="30" class="vacant" />
+            <rect id="seat28" x="700" y="274" width="30" height="30" class="vacant" />
+            <rect id="seat27" x="650" y="271" width="30" height="30" class="vacant" />
+            <rect id="seat26" x="600" y="268" width="30" height="30" class="vacant" />
+            <rect id="seat25" x="550" y="265" width="30" height="30" class="vacant" />
+            <!--front left -->
+            <rect id="seat17" x="200" y="330" width="30" height="30" class="vacant" />
+            <rect id="seat16" x="250" y="327" width="30" height="30" class="vacant" />
+            <rect id="seat15" x="300" y="324" width="30" height="30" class="vacant" />
+            <rect id="seat14" x="350" y="321" width="30" height="30" class="vacant" />
+            <rect id="seat13" x="400" y="318" width="30" height="30" class="vacant" />
+            <rect id="seat12" x="450" y="315" width="30" height="30" class="vacant" />
+            <!--front right -->
+            <rect id="seat6" x="800" y="330" width="30" height="30" class="vacant" />
+            <rect id="seat7" x="750" y="327" width="30" height="30" class="vacant" />
+            <rect id="seat8" x="700" y="324" width="30" height="30" class="vacant" />
+            <rect id="seat9" x="650" y="321" width="30" height="30" class="vacant" />
+            <rect id="seat10" x="600" y="318" width="30" height="30" class="vacant" />
+            <rect id="seat11" x="550" y="315" width="30" height="30" class="vacant" />
+            Sorry, your browser does not support inline SVG.
+        </svg>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+            <h1><span id="resYes" class="green"></span>Yes</h1>
+        </div>
+        <div class="col-lg-3">
+            <h1><span id="resNo" class="red"></span>No</h1>
+        </div>
+        <div class="col-lg-3">
+            <h1><span id="resAbstain" class="yellow"></span>Abstain</h1>
+        </div>
+        <div class="col-lg-3">
+            <h1><span id="resTotal" class="black"></span>Total</h1>
+        </div>
+    </div>
+</div>
+<script src="/lib/jquery/dist/jquery.js"></script>
+<script>
+    var arr = new Object();
+    
+    @foreach (var vote in Model.Votes)
+    { 
+        <text>    
+            arr['@vote.Member.SeatNumber'] = '@vote.CastVote';
+        </text>
+    }
+
+    function updateVote(seat, vote) {
+        document.getElementById("seat" + seat).className.baseVal = arr[seat];
+    }
+
+    function updateTotals() {
+
+        var yes = 0;
+        var no = 0;
+        var abstain = 0;
+        var total = 0;
+        for (var vote in arr) {
+            if (arr[vote] === 'Yes') {
+                yes++;
+            } else if (arr[vote] === 'No') {
+                no++;
+            } else if (arr[vote] === 'Abstain') {
+                abstain++;
+            }
+            total++;
+        }
+
+        $("#resNo").text(no);
+        $("#resYes").text(yes);
+        $("#resAbstain").text(abstain);
+        $("#resTotal").text(total);
+        
+        
+    }
+
+    $(document).ready(function () {
+        for (var vote in arr) {
+            updateVote(vote, arr[vote]);
+        }
+        updateTotals();
+    });
+</script>
+
+<script src="~/lib/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/display.js"></script>

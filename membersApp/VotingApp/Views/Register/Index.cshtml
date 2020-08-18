@@ -1,0 +1,73 @@
+﻿@model VotingApp.ViewModels.RegisterIndexViewModel;
+@{
+    ViewData["Title"] = "Member Registration Page";
+}
+<h1>Member Registration Page</h1>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+
+    function filter(value) {
+        $("#myDIV *").filter(function () {
+            $(this).toggle($(this).text().trim().toLowerCase().indexOf(value) == 0)
+        });
+    }
+
+</script>
+<div class="container">
+    <div class="row">
+
+        @{
+            SortedDictionary<string, int> beginsWith = new SortedDictionary<string, int>();
+        }
+        @foreach (var member in Model.Register)
+        {
+            try
+            {
+                beginsWith.Add(member.Key.LastName.Substring(0, 1).ToUpper(), 1);
+            }
+            catch
+            {
+
+            }
+        }
+        @{
+            foreach (var letter in beginsWith)
+            {
+                <div class="col-md-1"><button onclick="filter('@letter.Key.ToLower()')" class="filterbutton">@letter.Key.ToUpper()</button></div>
+            }            
+        }
+
+
+
+
+    </div>
+    <div class="row" id="myDIV">
+        @if (@Model.CouncilSession.IsActiveSession)
+        {
+            @foreach (var member in Model.Register)
+            {
+                <form>
+                    <div class="col-md-4">
+                        @if (member.Value == 0)
+                        {
+                            <button style="display:none;" asp-action="RegisterAttendance" asp-route-id="@member.Key.AzureId" asp-controller="Register" value="@member.Key.AzureId" class="registerbutton regbut">@member.Key.LastName, @member.Key.FirstName</button>
+                            <br />
+                        }
+                        else
+                        {
+                            <button style="display:none;" asp-action="UnregisterMember" asp-route-id="@member.Key.AzureId" asp-controller="Register" value="@member.Key.AzureId" class="unregisterbutton regbut">@member.Key.LastName, @member.Key.FirstName</button>
+                            <br />
+                        }
+
+
+                    </div>
+                </form>
+            }
+
+        }
+        else
+        {
+            <h3>No sessions are currently active.  Please refresh when the administrator has started the session.</h3>
+        }
+    </div>
+</div>

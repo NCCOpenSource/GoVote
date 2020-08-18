@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>This is the Main Home Voting page</h1>
+<div class="container">
+    <div class="row"><h2>Member's Voting App</h2></div>
+    <div class="row"><h5>When a vote is launched it'll appear below</h5></div>
+    <div class="row">
+        <div class="row">
+            <div class="col-6">
+                <ul id="messagesList"></ul>
+            </div>
+        </div>
+        <div class="col-12">
+            <label id="seatNo"></label>
+            <div id="voteButtons" style="display:none;">
+                <h3>Vote number: </h3><h3 id="voteNumber"></h3>
+                <div class="col-12">
+                    <div class="col-4">
+                        <input class="votebutton yes" type="button" id="sendYes" value="Yes" />
+                    </div>
+                    <div class="col-4">
+                        <input class="votebutton no" type="button" id="sendNo" value="No" />
+                    </div>
+                    <div class="col-4">
+                        <input class="votebutton abstain" type="button" id="sendAbstain" value="Abstain" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .votebutton {
+            width: 25%;
+            height: 40px;
+            margin-bottom: 20px;
+        }
+
+        .yes, .Yes {
+            background-color: green;
+            color: white;
+        }
+
+        .no {
+            background-color: red;
+            color: white;
+        }
+
+        .abstain {
+            background-color: purple;
+            color: white;
+        }
+    </style>
+
+</div>
+<script src="~/lib/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/vote.js"></script>

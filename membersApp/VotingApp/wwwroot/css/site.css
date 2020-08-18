@@ -1,0 +1,247 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+.navbar-brand {
+     font-size: 2.75rem!important;
+    
+}
+.navbar-logo {
+    height: 40px !important;
+    float: right;
+    margin: 10px;
+}
+.navbar {
+    border-bottom: 1px solid black !important;
+}
+/*Register Views*/
+.filterbutton {
+    font-size: 5rem;
+    background-color: rgba(2,131,124,0.9);
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+    border: none;
+    width: 100%;
+}
+
+.registerbutton {
+    background-color: #2f3e93;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+    border: none;
+    width: 100%;
+    font-size: 2.5rem;
+}
+
+.unregisterbutton {
+    background-color: #c40064;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+    border: none;
+    width: 100%;
+    font-size: 2.5rem;
+}
+/*Home/Voting Views*/
+.votebutton {
+    width: 25%;
+    height: 40px;
+    margin-bottom: 20px;
+    border: none;
+    font-size: large;
+}
+@media only screen and (max-width: 600px) {
+    .votebutton {
+        width: 100%;
+       
+    }
+}
+
+.refresh {
+    background-color: cornflowerblue;
+    color: white;
+}
+
+.yes, .Yes {
+    background-color: green;
+    color: white;
+}
+
+.no, .No {
+    background-color: red;
+    color: white;
+}
+
+.abstain, .Abstain {
+    background-color: yellow;
+    color: black;
+}
+
+/*Display Styles*/
+.vacant {
+    fill: black;
+}
+
+.vote-indicator{
+    margin-top: 0px;
+}
+.novote {
+    fill: white;
+    stroke-width: 1px;
+    stroke: rgb(0,0,0);
+}
+
+.Yes, .yes {
+    fill: #4CAF50;
+    stroke-width: 1px;
+    stroke: rgb(0,0,0);
+}
+
+.No, .no {
+    fill: red;
+    stroke-width:1px;
+    stroke: rgb(0,0,0);
+}
+
+.Abstain, .abstain {
+    fill: yellow;
+    stroke-width: 1px;
+    stroke: rgb(0,0,0);
+}
+span.red {
+    font-size: 60px;
+    background: red;
+    border-radius: 0.8em;
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius: 0.8em;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1.6em;
+    margin-right: 15px;
+    text-align: center;
+    width: 1.6em;
+}
+
+span.green {
+    font-size: 60px;
+    background: #5EA226;
+    border-radius: 0.8em;
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius: 0.8em;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1.6em;
+    margin-right: 15px;
+    text-align: center;
+    width: 1.6em;
+}
+
+span.yellow {
+    font-size: 60px;
+    background: yellow;
+    color: black;
+    border-radius: 0.8em;
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius: 0.8em;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1.6em;
+    margin-right: 15px;
+    text-align: center;
+    width: 1.6em;
+}
+
+
+span.blue {
+    font-size: 60px;
+    background: darkblue;
+    color:white;
+    border-radius: 0.8em;
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius: 0.8em;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1.6em;
+    margin-right: 15px;
+    text-align: center;
+    width: 1.6em;
+}
+span.black {
+    font-size: 30px;
+    background: black;
+    border-radius: 0.8em;
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius: 0.8em;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1.6em;
+    margin-right: 15px;
+    text-align: center;
+    width: 5em;
+}
+/*Admin Styles*/
+.end {
+    background-color: red;
+    padding: 10px;
+    color: white;
+    border: none;
+    width:100%;
+}
+
+.start {
+    background-color: green;
+    padding: 10px;
+    border: none;
+    color: white;
+    width: 100%;
+}
+
+.membersList td, .membersList th {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px
+}
+
+.noseat {
+    background-color: red !important;
+    color: white;
+}
+
+.adminregisterbutton {
+    background-color: #2f3e93;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+    border: none;
+    width: 100%;
+    font-size: 1.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.adminunregisterbutton {
+    background-color: #c40064;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+    border: none;
+    width: 100%;
+    font-size: 1.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

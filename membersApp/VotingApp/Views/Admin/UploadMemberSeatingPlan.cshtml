@@ -1,0 +1,79 @@
+﻿@model VotingApp.ViewModels.AdminIndexViewModel;
+@{
+    ViewData["Title"] = "Admin Page";
+}
+<h1>Admin Console</h1>
+<h2>Change member seating plan</h2>
+
+
+
+
+<div class="row">
+    <div class="col-12">
+        <h3>Update Seat List</h3>
+        <h4>1.  Refresh the list of current members from Azure</h4>
+        <form method="post" enctype="multipart/form-data" asp-controller="Admin" asp-action="DeLinkMembers">
+            <div class="form-group">
+                <input type="submit" value="Refresh Member List" />
+            </div>
+        </form>
+        <br />
+    </div>
+    <div class="col-12">
+        <h4>2.  <a asp-action="ExportMemberList" asp-controller="Admin">Download the existing seating list here</a></h4>
+        <br />
+        <h4>3.  Amend the csv file and update with the correct seat numbers</h4>
+        <br />
+    </div>
+    <div class="col-12">
+        <h4>4.  Upload amended seatlist csv </h4>
+        <form method="post" enctype="multipart/form-data" asp-controller="Admin" asp-action="UploadFiles">
+            <div class="form-group">
+                <p>Upload one or more files using this form:</p>
+                <input type="file" name="files" multiple />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Upload" />
+            </div>
+        </form>
+        <br />
+    </div>
+    <div class="col-12">
+        <h3>Current Seat List</h3>
+        <table id="membersTable" class="membersList">
+            <thead>
+                <tr>
+                    <th>Azure ID</th>
+                    <th>Last name</th>
+                    <th>First name</th>
+                    <th>Seat number</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var member in Model.SeatList)
+                {
+                    <tr @(member.Value.Equals(0) ? "class=noseat" : "")>
+                        <td>@member.Key.AzureId</td>
+                        <td>@member.Key.LastName</td>
+                        <td>@member.Key.FirstName</td>
+                        <td>@member.Value</td>
+                    </tr>
+                }
+            
+             </tbody>
+        </table>
+
+        <a asp-action="Index" asp-controller="Admin">Back to Admin screen</a>
+
+    </div>
+
+</div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $("#membersTable").DataTable({
+            "pageLength": 100
+        });
+    });
+</script>

@@ -1,0 +1,367 @@
+﻿@using System;
+@model VotingApp.ViewModels.DisplayIndexViewModel;
+@{ 
+    ViewData["Title"] = "Display Page"; 
+}
+
+<div class="container">
+    <div class="row" id="ballotId">
+        <div class="col-lg-12">
+            <h1 class="vote-indicator"><span id="balId" class="black">Vote @Model.BallotId</span></h1>
+        </div>
+    </div>
+    <div class="row" id="chamberGraphic">
+        <style>
+            .sign-out-link {
+                display: none;
+            }
+            #chamberGraphic, #resultsSummary {
+                text-align: center;
+            }
+        </style>
+
+        <svg width="1020" height="600" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <title>background</title>
+                <rect fill="none" id="canvas_background" height="602" width="1022" y="-1" x="-1"></rect>
+            </g>
+
+            <g>
+                <title>Layer 1</title>
+                <g id="svg_113">
+                    <rect class="vacant" id="seat100" height="34" width="34" y="464.61196" x="8" fill="black"></rect>
+                    <rect class="vacant" id="seat101" height="34" width="34" y="477.5" x="63"></rect>
+                    <rect class="vacant" id="seat102" height="34" width="34" y="484.5" x="118"></rect>
+                    <rect class="vacant" id="seat103" height="34" width="34" y="491.3" x="173"></rect>
+                    <rect class="vacant" id="seat104" height="34" width="34" y="498.2" x="228"></rect>
+                    <rect class="vacant" id="seat106" height="34" width="34" y="512" x="338"></rect>
+                    <rect class="vacant" id="seat107" height="34" width="34" y="518.9" x="393"></rect>
+                    <rect class="vacant" id="seat108" height="34" width="34" y="526.1" x="448"></rect>
+                    <rect class="vacant" id="seat82" height="34" width="34" y="395.4" x="8"></rect>
+                    <rect class="vacant" id="seat83" height="34" width="34" y="402.3" x="63"></rect>
+                    <rect class="vacant" id="seat84" height="34" width="34" y="409.2" x="118"></rect>
+                    <rect class="vacant" id="seat85" height="34" width="34" y="416.1" x="173"></rect>
+                    <rect class="vacant" id="seat86" height="34" width="34" y="423" x="228"></rect>
+                    <rect class="vacant" id="seat88" height="34" width="34" y="436.8" x="338"></rect>
+                    <rect class="vacant" id="seat89" height="34" width="34" y="443.7" x="393"></rect>
+                    <rect class="vacant" id="seat90" height="34" width="34" y="450.9" x="448"></rect>
+                    <rect class="vacant" id="seat64" height="34" width="34" y="320.2" x="8"></rect>
+                    <rect class="vacant" id="seat65" height="34" width="34" y="327.2" x="63"></rect>
+                    <rect class="vacant" id="seat66" height="34" width="34" y="334" x="118"></rect>
+                    <rect class="vacant" id="seat67" height="34" width="34" y="341" x="173"></rect>
+                    <rect class="vacant" id="seat68" height="34" width="34" y="347.8" x="228"></rect>
+                    <rect class="vacant" id="seat70" height="34" width="34" y="361.6" x="338"></rect>
+                    <rect class="vacant" id="seat71" height="34" width="34" y="368.5" x="393"></rect>
+                    <rect class="vacant" id="seat72" height="34" width="34" y="375.7" x="448"></rect>
+                    <rect class="vacant" id="seat48" height="34" width="34" y="252" x="63"></rect>
+                    <rect class="vacant" id="seat49" height="34" width="34" y="258.9" x="118"></rect>
+                    <rect class="vacant" id="seat50" height="34" width="34" y="265.8" x="173"></rect>
+                    <rect class="vacant" id="seat51" height="34" width="34" y="272.7" x="228"></rect>
+                    <rect class="vacant" id="seat53" height="34" width="34" y="286.5" x="338"></rect>
+                    <rect class="vacant" id="seat54" height="34" width="34" y="293.4" x="393"></rect>
+                    <rect class="vacant" id="seat55" height="34" width="34" y="300.6" x="448"></rect>
+                    <rect class="vacant" id="seat32" height="34" width="34" y="176.8" x="63"></rect>
+                    <rect class="vacant" id="seat33" height="34" width="34" y="183.7" x="118"></rect>
+                    <rect class="vacant" id="seat34" height="34" width="34" y="190.6" x="173"></rect>
+                    <rect class="vacant" id="seat35" height="34" width="34" y="197.5" x="228"></rect>
+                    <rect class="vacant" id="seat37" height="34" width="34" y="211.3" x="338"></rect>
+                    <rect class="vacant" id="seat38" height="34" width="34" y="218.2" x="393"></rect>
+                    <rect class="vacant" id="seat39" height="34" width="34" y="225.4" x="448"></rect>
+                    <rect class="vacant" id="seat18" height="34" width="34" y="108.5" x="118"></rect>
+                    <rect class="vacant" id="seat19" height="34" width="34" y="115.4" x="173"></rect>
+                    <rect class="vacant" id="seat20" height="34" width="34" y="122.3" x="228"></rect>
+                    <rect class="vacant" id="seat22" height="34" width="34" y="136.1" x="338"></rect>
+                    <rect class="vacant" id="seat23" height="34" width="34" y="143" x="393"></rect>
+                    <rect class="vacant" id="seat24" height="34" width="34" y="150.2" x="448"></rect>
+                    <rect class="vacant" id="seat6" height="34" width="34" y="40.2" x="173"></rect>
+                    <rect class="vacant" id="seat7" height="34" width="34" y="47.2" x="228"></rect>
+                    <rect class="vacant" id="seat9" height="34" width="34" y="60.9" x="338"></rect>
+                    <rect class="vacant" id="seat10" height="34" width="34" y="67.8" x="393"></rect>
+                    <rect class="vacant" id="seat11" height="34" width="34" y="75" x="448"></rect>
+                    <rect class="vacant" id="seat2" height="34" width="34" y="0" x="448"></rect>
+                    <rect class="vacant" id="seat1" height="34" width="34" y="0" x="522"></rect>
+                    <rect class="vacant" id="seat105" height="34" width="34" y="505.1" x="283"></rect>
+                    <rect class="vacant" id="seat87" height="34" width="34" y="429.9" x="283"></rect>
+                    <rect class="vacant" id="seat69" height="34" width="34" y="354.7" x="283"></rect>
+                    <rect class="vacant" id="seat52" height="34" width="34" y="279.6" x="283"></rect>
+                    <rect class="vacant" id="seat36" height="34" width="34" y="204.4" x="283"></rect>
+                    <rect class="vacant" id="seat21" height="34" width="34" y="129.2" x="283"></rect>
+                    <rect class="vacant" id="seat8" height="34" width="34" y="54.1" x="283"></rect>
+                    <rect class="vacant" id="seat109" height="34" width="34" y="526.1" x="522"></rect>
+                    <rect class="vacant" id="seat91" height="34" width="34" y="450.9" x="522"></rect>
+                    <rect class="vacant" id="seat73" height="34" width="34" y="375.7" x="522"></rect>
+                    <rect class="vacant" id="seat56" height="34" width="34" y="300.6" x="522"></rect>
+                    <rect class="vacant" id="seat40" height="34" width="34" y="225.4" x="522"></rect>
+                    <rect class="vacant" id="seat25" height="34" width="34" y="150.2" x="522"></rect>
+                    <rect class="vacant" id="seat12" height="34" width="34" y="75" x="522"></rect>
+                    <rect class="vacant" id="seat110" height="34" width="34" y="518.9" x="577"></rect>
+                    <rect class="vacant" id="seat92" height="34" width="34" y="443.7" x="577"></rect>
+                    <rect class="vacant" id="seat74" height="34" width="34" y="368.5" x="577"></rect>
+                    <rect class="vacant" id="seat57" height="34" width="34" y="293.4" x="577"></rect>
+                    <rect class="vacant" id="seat41" height="34" width="34" y="218.2" x="577"></rect>
+                    <rect class="vacant" id="seat26" height="34" width="34" y="143" x="577"></rect>
+                    <rect class="vacant" id="seat13" height="34" width="34" y="67.9" x="577"></rect>
+                    <rect class="vacant" id="seat111" height="34" width="34" y="512" x="632"></rect>
+                    <rect class="vacant" id="seat93" height="34" width="34" y="436.8" x="632"></rect>
+                    <rect class="vacant" id="seat75" height="34" width="34" y="361.6" x="632"></rect>
+                    <rect class="vacant" id="seat58" height="34" width="34" y="286.5" x="632"></rect>
+                    <rect class="vacant" id="seat42" height="34" width="34" y="211.3" x="632"></rect>
+                    <rect class="vacant" id="seat27" height="34" width="34" y="136.1" x="632"></rect>
+                    <rect class="vacant" id="seat14" height="34" width="34" y="60.9" x="632"></rect>
+                    <rect class="vacant" id="seat112" height="34" width="34" y="505.1" x="687"></rect>
+                    <rect class="vacant" id="seat94" height="34" width="34" y="429.9" x="687"></rect>
+                    <rect class="vacant" id="seat76" height="34" width="34" y="354.7" x="687"></rect>
+                    <rect class="vacant" id="seat59" height="34" width="34" y="279.6" x="687"></rect>
+                    <rect class="vacant" id="seat43" height="34" width="34" y="204.4" x="687"></rect>
+                    <rect class="vacant" id="seat28" height="34" width="34" y="129.2" x="687"></rect>
+                    <rect class="vacant" id="seat15" height="34" width="34" y="54.1" x="687"></rect>
+                    <rect class="vacant" id="seat113" height="34" width="34" y="498.2" x="742"></rect>
+                    <rect class="vacant" id="seat95" height="34" width="34" y="423" x="742"></rect>
+                    <rect class="vacant" id="seat77" height="34" width="34" y="347.8" x="742"></rect>
+                    <rect class="vacant" id="seat60" height="34" width="34" y="272.7" x="742"></rect>
+                    <rect class="vacant" id="seat44" height="34" width="34" y="197.5" x="742"></rect>
+                    <rect class="vacant" id="seat29" height="34" width="34" y="122.3" x="742"></rect>
+                    <rect class="vacant" id="seat16" height="34" width="34" y="47.2" x="742"></rect>
+                    <rect class="vacant" id="seat114" height="34" width="34" y="491.3" x="797"></rect>
+                    <rect class="vacant" id="seat96" height="34" width="34" y="416.1" x="797"></rect>
+                    <rect class="vacant" id="seat78" height="34" width="34" y="340.9" x="797"></rect>
+                    <rect class="vacant" id="seat61" height="34" width="34" y="265.8" x="797"></rect>
+                    <rect class="vacant" id="seat45" height="34" width="34" y="190.6" x="797"></rect>
+                    <rect class="vacant" id="seat30" height="34" width="34" y="115.4" x="797"></rect>
+                    <rect class="vacant" id="seat17" height="34" width="34" y="40.3" x="797"></rect>
+                    <rect class="vacant" id="seat115" height="34" width="34" y="484.4" x="852"></rect>
+                    <rect class="vacant" id="seat97" height="34" width="34" y="409.2" x="852"></rect>
+                    <rect class="vacant" id="seat79" height="34" width="34" y="334.1" x="852"></rect>
+                    <rect class="vacant" id="seat62" height="34" width="34" y="258.9" x="852"></rect>
+                    <rect class="vacant" id="seat46" height="34" width="34" y="183.7" x="852"></rect>
+                    <rect class="vacant" id="seat31" height="34" width="34" y="108.5" x="852"></rect>
+                    <rect class="vacant" id="seat116" height="34" width="34" y="477.5" x="907"></rect>
+                    <rect class="vacant" id="seat98" height="34" width="34" y="402.3" x="907"></rect>
+                    <rect class="vacant" id="seat80" height="34" width="34" y="327.2" x="907"></rect>
+                    <rect class="vacant" id="seat63" height="34" width="34" y="252" x="907"></rect>
+                    <rect class="vacant" id="seat47" height="34" width="34" y="176.8" x="907"></rect>
+                    <rect class="vacant" id="seat117" height="34" width="34" y="464.6" x="962"></rect>
+                    <rect class="vacant" id="seat99" height="34" width="34" y="395.4" x="962"></rect>
+                    <rect class="vacant" id="seat81" height="34" width="34" y="320.3" x="962"></rect>
+                    <text id="svg_1" fill="#000000" stroke-width="0" x="0.83333" y="529" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">100</text>
+                    <text id="svg_2" fill="#000000" stroke-width="0" x="7.72917" y="455.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">82</text>
+                    <text id="svg_3" fill="#000000" stroke-width="0" x="10.39583" y="380.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">64</text>
+                    <text id="svg_4" fill="#000000" stroke-width="0" x="55.5" y="537.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">101</text>
+                    <text id="svg_5" fill="#000000" stroke-width="0" x="63.72917" y="462.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">83</text>
+                    <text id="svg_6" fill="#000000" stroke-width="0" x="66.39583" y="388.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">65</text>
+                    <text id="svg_7" fill="#000000" stroke-width="0" x="64.22917" y="313.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">48</text>
+                    <text id="svg_8" fill="#000000" stroke-width="0" x="65.0625" y="237.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">32</text>
+                    <text id="svg_9" fill="#000000" stroke-width="0" x="118.22917" y="320.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">49</text>
+                    <text id="svg_10" fill="#000000" stroke-width="0" x="120.39583" y="245.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">33</text>
+                    <text id="svg_11" fill="#000000" stroke-width="0" x="117.72917" y="168.33333" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">18</text>
+                    <text id="svg_12" fill="#000000" stroke-width="0" x="120.39583" y="394.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">66</text>
+                    <text id="svg_13" fill="#000000" stroke-width="0" x="117.72917" y="469.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">84</text>
+                    <text id="svg_14" fill="#000000" stroke-width="0" x="109.5" y="544.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">102</text>
+                    <text id="svg_15" fill="#000000" stroke-width="0" x="172.72917" y="327.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">50</text>
+                    <text id="svg_16" fill="#000000" stroke-width="0" x="175.39583" y="252.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">34</text>
+                    <text id="svg_17" fill="#000000" stroke-width="0" x="174.0625" y="175.33333" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">19</text>
+                    <text id="svg_18" fill="#000000" stroke-width="0" x="175.39583" y="402.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">67</text>
+                    <text id="svg_19" fill="#000000" stroke-width="0" x="172.72917" y="476.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">85</text>
+                    <text id="svg_20" fill="#000000" stroke-width="0" x="164.5" y="551.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">103</text>
+                    <text id="svg_21" fill="#000000" stroke-width="0" x="227.72917" y="334.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">51</text>
+                    <text id="svg_22" fill="#000000" stroke-width="0" x="230.39583" y="258.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">35</text>
+                    <text id="svg_23" fill="#000000" stroke-width="0" x="230.39583" y="182.33333" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">20</text>
+                    <text id="svg_24" fill="#000000" stroke-width="0" x="230.39583" y="409.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">68</text>
+                    <text id="svg_25" fill="#000000" stroke-width="0" x="227.72917" y="483.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">86</text>
+                    <text id="svg_26" fill="#000000" stroke-width="0" x="219.5" y="558.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">104</text>
+                    <text id="svg_27" fill="#000000" stroke-width="0" x="284.0625" y="340.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">52</text>
+                    <text id="svg_28" fill="#000000" stroke-width="0" x="285.39583" y="265.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">36</text>
+                    <text id="svg_29" fill="#000000" stroke-width="0" x="285.39583" y="189.33333" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">21</text>
+                    <text id="svg_30" fill="#000000" stroke-width="0" x="285.39583" y="416.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">69</text>
+                    <text id="svg_31" fill="#000000" stroke-width="0" x="282.72917" y="490.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">87</text>
+                    <text id="svg_32" fill="#000000" stroke-width="0" x="274.5" y="565.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">105</text>
+                    <text id="svg_33" fill="#000000" stroke-width="0" x="339.0625" y="347.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">53</text>
+                    <text id="svg_34" fill="#000000" stroke-width="0" x="340.39583" y="272.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">37</text>
+                    <text id="svg_35" fill="#000000" stroke-width="0" x="340.39583" y="195.33333" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">22</text>
+                    <text id="svg_36" fill="#000000" stroke-width="0" x="340.39583" y="422.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">70</text>
+                    <text id="svg_37" fill="#000000" stroke-width="0" x="336.39583" y="497.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">88</text>
+                    <text id="svg_38" fill="#000000" stroke-width="0" x="329.5" y="571.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">106</text>
+                    <text id="svg_39" fill="#000000" stroke-width="0" x="395.0625" y="354.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">54</text>
+                    <text id="svg_40" fill="#000000" stroke-width="0" x="396.39583" y="279.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">38</text>
+                    <text id="svg_41" fill="#000000" stroke-width="0" x="396.39583" y="202.33333" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">23</text>
+                    <text id="svg_42" fill="#000000" stroke-width="0" x="396.39583" y="429.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">71</text>
+                    <text id="svg_43" fill="#000000" stroke-width="0" x="392.39583" y="504.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">89</text>
+                    <text id="svg_44" fill="#000000" stroke-width="0" x="385.5" y="578.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">107</text>
+                    <text id="svg_45" fill="#000000" stroke-width="0" x="449.0625" y="361.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">55</text>
+                    <text id="svg_46" fill="#000000" stroke-width="0" x="450.39583" y="286.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">39</text>
+                    <text id="svg_47" fill="#000000" stroke-width="0" x="450.39583" y="209.33333" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">24</text>
+                    <text id="svg_48" fill="#000000" stroke-width="0" x="450.39583" y="436.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">72</text>
+                    <text id="svg_49" fill="#000000" stroke-width="0" x="447.72917" y="511.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">90</text>
+                    <text id="svg_50" fill="#000000" stroke-width="0" x="439.5" y="585.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">108</text>
+                    <text id="svg_51" fill="#000000" stroke-width="0" x="182.74479" y="100.33333" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">6</text>
+                    <text id="svg_52" fill="#000000" stroke-width="0" x="237.29167" y="107.33333" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">7</text>
+                    <text id="svg_53" fill="#000000" stroke-width="0" x="292.29167" y="114.33333" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">8</text>
+                    <text id="svg_54" fill="#000000" stroke-width="0" x="347.29167" y="120.33333" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">9</text>
+                    <text id="svg_55" fill="#000000" stroke-width="0" x="393.72917" y="127.33333" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">10</text>
+                    <text id="svg_56" fill="#000000" stroke-width="0" x="448.47136" y="134.33333" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">11</text>
+                    <text id="svg_56" fill="#000000" stroke-width="0" x="457.47136" y="59.33333" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">2</text>
+                    <text id="svg_56" fill="#000000" stroke-width="0" x="531.47136" y="59.33333" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">1</text>
+                    <text id="svg_57" fill="#000000" stroke-width="0" x="524.0625" y="361.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">56</text>
+                    <text id="svg_58" fill="#000000" stroke-width="0" x="525.39583" y="286.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">40</text>
+                    <text id="svg_59" fill="#000000" stroke-width="0" x="524.0625" y="212" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">25</text>
+                    <text id="svg_60" fill="#000000" stroke-width="0" x="525.39583" y="436.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">73</text>
+                    <text id="svg_61" fill="#000000" stroke-width="0" x="522.72917" y="511.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">91</text>
+                    <text id="svg_62" fill="#000000" stroke-width="0" x="514.5" y="585.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">109</text>
+                    <text id="svg_63" fill="#000000" stroke-width="0" x="523.47136" y="135.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">12</text>
+                    <text id="svg_64" fill="#000000" stroke-width="0" x="579.0625" y="354.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">57</text>
+                    <text id="svg_65" fill="#000000" stroke-width="0" x="580.39583" y="279.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">41</text>
+                    <text id="svg_66" fill="#000000" stroke-width="0" x="580.39583" y="204.33333" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">26</text>
+                    <text id="svg_67" fill="#000000" stroke-width="0" x="580.39583" y="429.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">74</text>
+                    <text id="svg_68" fill="#000000" stroke-width="0" x="577.72917" y="504.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">92</text>
+                    <text id="svg_69" fill="#000000" stroke-width="0" x="569.5" y="578.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">110</text>
+                    <text id="svg_70" fill="#000000" stroke-width="0" x="577.72917" y="128.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">13</text>
+                    <text id="svg_71" fill="#000000" stroke-width="0" x="634.0625" y="347.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">58</text>
+                    <text id="svg_72" fill="#000000" stroke-width="0" x="635.39583" y="272.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">42</text>
+                    <text id="svg_73" fill="#000000" stroke-width="0" x="635.39583" y="198" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">27</text>
+                    <text id="svg_74" fill="#000000" stroke-width="0" x="635.39583" y="422.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">75</text>
+                    <text id="svg_75" fill="#000000" stroke-width="0" x="632.72917" y="497.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">93</text>
+                    <text id="svg_76" fill="#000000" stroke-width="0" x="627.16667" y="571.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">111</text>
+                    <text id="svg_77" fill="#000000" stroke-width="0" x="633.29167" y="121.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">14</text>
+                    <text id="svg_78" fill="#000000" stroke-width="0" x="689.0625" y="340.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">59</text>
+                    <text id="svg_79" fill="#000000" stroke-width="0" x="690.39583" y="265.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">43</text>
+                    <text id="svg_80" fill="#000000" stroke-width="0" x="689.0625" y="190.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">28</text>
+                    <text id="svg_81" fill="#000000" stroke-width="0" x="690.39583" y="416.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">76</text>
+                    <text id="svg_82" fill="#000000" stroke-width="0" x="687.72917" y="490.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">94</text>
+                    <text id="svg_83" fill="#000000" stroke-width="0" x="680.83333" y="565.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">112</text>
+                    <text id="svg_84" fill="#000000" stroke-width="0" x="686.95833" y="114.33333" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">15</text>
+                    <text id="svg_85" fill="#000000" stroke-width="0" x="744.0625" y="334.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">60</text>
+                    <text id="svg_86" fill="#000000" stroke-width="0" x="745.39583" y="258.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">44</text>
+                    <text id="svg_87" fill="#000000" stroke-width="0" x="745.39583" y="183.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">29</text>
+                    <text id="svg_88" fill="#000000" stroke-width="0" x="745.39583" y="409.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">77</text>
+                    <text id="svg_89" fill="#000000" stroke-width="0" x="742.72917" y="483.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">95</text>
+                    <text id="svg_90" fill="#000000" stroke-width="0" x="735.83333" y="558.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">113</text>
+                    <text id="svg_91" fill="#000000" stroke-width="0" x="743.29167" y="107.33333" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">16</text>
+                    <text id="svg_92" fill="#000000" stroke-width="0" x="799.0625" y="327.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">61</text>
+                    <text id="svg_93" fill="#000000" stroke-width="0" x="800.39583" y="252.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">45</text>
+                    <text id="svg_94" fill="#000000" stroke-width="0" x="799.0625" y="176.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">30</text>
+                    <text id="svg_95" fill="#000000" stroke-width="0" x="800.39583" y="402.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">78</text>
+                    <text id="svg_96" fill="#000000" stroke-width="0" x="797.72917" y="476.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">96</text>
+                    <text id="svg_97" fill="#000000" stroke-width="0" x="790.83333" y="551.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">114</text>
+                    <text id="svg_98" fill="#000000" stroke-width="0" x="796.95833" y="103" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">17</text>
+                    <text id="svg_99" fill="#000000" stroke-width="0" x="854.5625" y="320.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">62</text>
+                    <text id="svg_100" fill="#000000" stroke-width="0" x="855.39583" y="245.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">46</text>
+                    <text id="svg_101" fill="#000000" stroke-width="0" x="856.72917" y="169.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">31</text>
+                    <text id="svg_102" fill="#000000" stroke-width="0" x="855.39583" y="394.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">79</text>
+                    <text id="svg_103" fill="#000000" stroke-width="0" x="852.72917" y="469.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">97</text>
+                    <text id="svg_104" fill="#000000" stroke-width="0" x="845.83333" y="544.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">115</text>
+                    <text id="svg_105" fill="#000000" stroke-width="0" x="900.83333" y="537.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">116</text>
+                    <text id="svg_106" fill="#000000" stroke-width="0" x="907.72917" y="462.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">98</text>
+                    <text id="svg_107" fill="#000000" stroke-width="0" x="910.39583" y="388.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">80</text>
+                    <text id="svg_108" fill="#000000" stroke-width="0" x="909.5625" y="313.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">63</text>
+                    <text id="svg_109" fill="#000000" stroke-width="0" x="910.39583" y="237.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">47</text>
+                    <text id="svg_110" fill="#000000" stroke-width="0" x="955.5" y="531.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">117</text>
+                    <text id="svg_111" fill="#000000" stroke-width="0" x="963.72917" y="455.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">99</text>
+                    <text id="svg_112" fill="#000000" stroke-width="0" x="966.39583" y="380.66667" font-size="30" font-family="Oswald, sans-serif" text-anchor="start" font-weight="normal">81</text>Sorry, your browser does not support inline SVG.
+                </g>
+            </g>
+        </svg>
+        <!--<svg id="chamber" height="630" width="1250">
+            <style>
+              .heavy {
+                  font: 20px sans-serif;
+              }
+            </style>
+            <rect id="seat1" x="300" y="50" width="50" height="50" class="vacant" />
+            <rect id="" x="400" y="50" width="50" height="50" class="novote" />
+            <rect id="seat2" x="500" y="50" width="50" height="50" class="vacant" />
+            <rect id="" x="600" y="50" width="50" height="50" class="novote" />
+            <rect id="seat3" x="700" y="50" width="50" height="50" class="vacant" />
+
+
+            <rect id="seat117" x="225" y="125" width="50" height="50" class="novote" />
+            <rect id="seat117" x="225" y="200" width="50" height="50" class="novote" />
+            <rect id="seat117" x="225" y="275" width="50" height="50" class="novote" />
+            <text x="100" y="225" class="heavy"></text>
+            <rect id="seat4" x="225" y="350" width="50" height="50" class="vacant" />
+            <rect id="seat5" x="225" y="425" width="50" height="50" class="vacant" />
+            <rect id="seat6" x="225" y="500" width="50" height="50" class="vacant" />
+            <rect id="seat7" x="225" y="575" width="50" height="50" class="vacant" />
+
+            <rect id="seat8" x="775" y="125" width="50" height="50" class="vacant" />
+            <rect id="seat9" x="775" y="200" width="50" height="50" class="vacant" />
+            <rect id="seat10" x="775" y="275" width="50" height="50" class="vacant" />
+            <rect id="seat11" x="775" y="350" width="50" height="50" class="vacant" />
+            <rect id="seat12" x="775" y="425" width="50" height="50" class="vacant" />
+            <rect id="seat13" x="775" y="500" width="50" height="50" class="vacant" />
+            <rect id="seat14" x="775" y="575" width="50" height="50" class="vacant" />
+            Sorry, your browser does not support inline SVG.
+        </svg>-->
+    </div>
+    <div class="row" id="resultsSummary">
+        <div class="col-lg-3">
+            <h1 class="vote-indicator"><span id="resYes" class="green"></span>Yes</h1>
+        </div>
+        <div class="col-lg-3">
+            <h1 class="vote-indicator"><span id="resNo" class="red"></span>No</h1>
+        </div>
+        <div class="col-lg-3">
+            <h1 class="vote-indicator"><span id="resAbstain" class="yellow"></span>Abstain</h1>
+        </div>
+        <div class="col-lg-3">
+            <h1 class="vote-indicator"><span id="resTotal" class="blue"></span>Total</h1>
+        </div>
+    </div>
+</div>
+<script src="/lib/jquery/dist/jquery.js"></script>
+<script>
+    var arr = new Object();
+
+    function updateVote(seat, vote) {
+        try {
+            document.getElementById("seat" + seat).className.baseVal = arr[seat];
+        } catch (ex) {
+            console.log("error: " + ex);
+            console.log("seat: " +seat);
+            console.log("vote: " + vote);
+        }
+    }
+
+    function updateTotals() {
+
+        var yes = 0;
+        var no = 0;
+        var abstain = 0;
+        var total = 0;
+        for (var vote in arr) {
+            if (arr[vote] === 'Yes') {
+                yes++;
+            } else if (arr[vote] === 'No') {
+                no++;
+            } else if (arr[vote] === 'Abstain') {
+                abstain++;
+            }
+            total++;
+        }
+        try {
+            $("#resNo").text(no);
+            $("#resYes").text(yes);
+            $("#resAbstain").text(abstain);
+            $("#resTotal").text(total);
+        } catch (ex) {
+            console.log(ex);
+        }
+
+    }
+
+    $(document).ready(function () {
+
+
+        @foreach (var vote in Model.Votes)
+        {
+            <text>
+                arr['@vote.Seat'] = '@vote.CastVote';
+            </text>
+        }
+        for (var vote in arr) {
+            updateVote(vote, arr[vote]);
+        }
+        updateTotals();
+    });
+</script>
+<script src="~/lib/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/display.js"></script>

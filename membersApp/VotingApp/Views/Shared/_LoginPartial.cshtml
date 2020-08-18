@@ -1,0 +1,26 @@
+﻿@using Microsoft.AspNetCore.Authentication.AzureADB2C.UI
+@using Microsoft.Extensions.Options
+@inject IOptionsMonitor<AzureADB2COptions> AzureADB2COptions
+
+@{
+    var options = AzureADB2COptions.Get(AzureADB2CDefaults.AuthenticationScheme);
+}
+
+@{
+    try
+    {
+        @if (User.Identity.IsAuthenticated)
+        {
+            <form method="post" asp-controller="Auth" asp-action="SignOut">
+                <button style="background: none!important;color:inherit;border:none;font: inherit;cursor: pointer;" class="sign-out-link" type="submit">Sign out (@User.Claims.FirstOrDefault(r => r.Type.Contains("givenname")).Value @User.Claims.FirstOrDefault(r => r.Type.Contains("surname")).Value)  </button>
+            </form>
+
+        }
+    }
+    catch
+    {
+        <form method="post" asp-controller="Auth" asp-action="SignOut">
+            <button style="background: none!important;color:inherit;border:none;font: inherit;cursor: pointer;" class="sign-out-link" type="submit">Sign out</button>
+        </form>
+    }
+}
