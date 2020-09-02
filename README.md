@@ -160,7 +160,7 @@ To remove them from this list you will need to refresh the members list from /Ad
 
 # Contributing
 
-Please read [CONTRIBUTING.md ](http://https://github.com/NCCOpenSource/GoVote/blob/master/CONTRIBUTING.md "CONTRIBUTING.md ")for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md ](https://github.com/NCCOpenSource/GoVote/blob/master/CONTRIBUTING.md "CONTRIBUTING.md ")for details on our code of conduct, and the process for submitting pull requests to us.
 
 # Authors
 - 	Neil Adams - Initial work, app creation, code and documentation – Newcastle City Council
