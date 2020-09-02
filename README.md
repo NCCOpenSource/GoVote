@@ -164,9 +164,9 @@ Please read [CONTRIBUTING.md ](https://github.com/NCCOpenSource/GoVote/blob/mast
 
 # Authors
 - 	Neil Adams - Initial work, app creation, code and documentation – Newcastle City Council
-- 	Colin Anderson – Phase 2 and open source work – Newcastle City Council
-- 	Andy Todd – Code Review- Newcastle City Council
-- 	Ste Hext – Architecture – Newcastle City Council
+-	Colin Anderson – Phase 2 and Open Source work (code conversion) – Newcastle City Council
+- 	Andy Todd – Code Review - Newcastle City Council
+- 	Ste Hext – Architecture, Initial documentation conversion to Open Source – Newcastle City Council
 
 See also the list of contributors who participated in this project.
 
