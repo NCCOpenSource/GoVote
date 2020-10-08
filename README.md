@@ -3,6 +3,8 @@ Voting Web app built in C# to run in Azure, using Azure B2C to authenticate user
 
 You can see an example of GoVote being used in a virtual council meeting for Newcastle city council on the 24th of June 2020 [here](https://youtu.be/-UxsgA4PDWU?t=1000 "here")
 
+A demo video is also available [here](https://github.com/NCCOpenSource/GoVote/blob/master/DemoVideo.md "here")
+
 Allows you to authenticate a user to allow them to vote on polls pushed to their device (works on web for any device). Admins can trigger Polls on demand from and admin screen for a given subject text. Vote results can be displayed on a results screen mapped to a room layout in real-time. Votes can be analysed after the session in Power BI.
 
 Users need to be authenticated and checked in to be able to vote.
