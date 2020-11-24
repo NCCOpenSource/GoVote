@@ -185,6 +185,6 @@ Thanks to all who help in testing and support for GoVote. With out support of or
 
 Thanks you to @purpleBooth for the README template this is based on : https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
 
-# Contact details
+# Our Contact details
 
 For more information please contact <Opensourceprojects@newcastle.gov.uk>
